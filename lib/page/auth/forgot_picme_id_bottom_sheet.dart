@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:thaimai/api/dio_client.dart';
 import 'package:thaimai/constant/color_constant.dart';
 import 'package:thaimai/project_specific/button_widget.dart';
 import 'package:thaimai/project_specific/text_theme.dart';
@@ -18,7 +19,6 @@ class _ForGotPICMEIDSheetState extends State<ForGotPICMEIDSheet> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(left: 20, right: 20),
-
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -61,12 +61,25 @@ class _ForGotPICMEIDSheetState extends State<ForGotPICMEIDSheet> {
           ),
           const SizedBox(height: 30),
           Padding(
-            padding: const EdgeInsets.only(right: 40,left: 40),
-            child: CircleRadiusButton(buttonTitle: "Continue",onPressed: (){}),
+            padding: const EdgeInsets.only(right: 40, left: 40),
+            child: CircleRadiusButton(
+                buttonTitle: "Continue",
+                onPressed: () {
+                  doForgotPICMEID();
+                }),
           ),
           const SizedBox(height: 15),
         ],
       ),
     );
+  }
+
+  /*--------------- check Validation for PICME-ID -----------*/
+  doForgotPICMEID() {
+    if (_emailTextEditingController.text.isEmpty) {
+      showMessage("Please enter email address");
+    } else {
+      Get.back();
+    }
   }
 }

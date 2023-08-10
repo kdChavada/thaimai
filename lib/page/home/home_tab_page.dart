@@ -305,8 +305,8 @@ class _HomeTabPageState extends State<HomeTabPage> {
       ),
       drawer: Drawer(
         child: Container(
-          decoration: BoxDecoration(image: DecorationImage(image: AssetImage(AssetConstant.loginBg), fit: BoxFit.cover)),
-          child: Column(
+          decoration: const BoxDecoration(image: DecorationImage(image: AssetImage(AssetConstant.loginBg), fit: BoxFit.cover)),
+          child: const Column(
             children: [],
           ),
         ),

@@ -49,7 +49,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               padding: const EdgeInsets.only(left: 43, right: 43),
               child: Text(
                 "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.",
-                style: AppTextTheme.regular.copyWith(fontSize: 14, color: ColorConstants.textLightGray, height: 1.5),
+                style: AppTextTheme.regular.copyWith(fontSize: 14, color: ColorConstants.textLightShade.withOpacity(0.90), height: 1.5),
                 textAlign: TextAlign.center,
               ),
             ),

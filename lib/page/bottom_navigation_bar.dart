@@ -3,7 +3,6 @@ import 'package:thaimai/constant/asset_constant.dart';
 import 'package:thaimai/constant/color_constant.dart';
 import 'package:thaimai/page/home/home_tab_page.dart';
 
-
 class BottomNavigationBarPage extends StatefulWidget {
   const BottomNavigationBarPage({super.key});
 
@@ -17,7 +16,6 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       extendBody: true,
       body: const HomeTabPage(),
       bottomNavigationBar: Container(
@@ -42,7 +40,7 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
               child: Image.asset(
                 AssetConstant.homeIcon,
                 height: 30,
-                color: selectIndex == 0 ? ColorConstants.buttonColor : ColorConstants.textLightGray,
+                color: selectIndex == 0 ? ColorConstants.buttonColor : ColorConstants.textLightShade.withOpacity(0.90),
               ),
             ),
             InkWell(
@@ -54,7 +52,7 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
               child: Image.asset(
                 AssetConstant.likeIcon,
                 height: 30,
-                color: selectIndex == 1 ? ColorConstants.buttonColor : ColorConstants.textLightGray,
+                color: selectIndex == 1 ? ColorConstants.buttonColor : ColorConstants.textLightShade.withOpacity(0.90),
               ),
             ),
             Image.asset(
@@ -70,7 +68,7 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
               child: Image.asset(
                 AssetConstant.bookIcon,
                 height: 30,
-                color: selectIndex == 2 ? ColorConstants.buttonColor : ColorConstants.textLightGray,
+                color: selectIndex == 2 ? ColorConstants.buttonColor : ColorConstants.textLightShade.withOpacity(0.90),
               ),
             ),
             InkWell(
@@ -82,7 +80,7 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
               child: Image.asset(
                 AssetConstant.chatIcon,
                 height: 30,
-                color: selectIndex == 3 ? ColorConstants.buttonColor : ColorConstants.textLightGray,
+                color: selectIndex == 3 ? ColorConstants.buttonColor : ColorConstants.textLightShade.withOpacity(0.90),
               ),
             ),
           ],

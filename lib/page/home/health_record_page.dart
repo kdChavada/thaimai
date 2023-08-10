@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:thaimai/constant/asset_constant.dart';
 import 'package:thaimai/constant/color_constant.dart';
+import 'package:thaimai/page/home/model_sheet/health_record_model_sheet_view.dart';
 import 'package:thaimai/project_specific/text_theme.dart';
 
 class HealthRecordPage extends StatefulWidget {
@@ -308,8 +309,11 @@ class _HealthRecordPageState extends State<HealthRecordPage> {
               children: [
                 Container(
                   height: 34,
+                  padding: const EdgeInsets.all(9),
                   decoration: BoxDecoration(
-                    boxShadow: [
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: ColorConstants.borderColor,width: 1),
+                    boxShadow: const  [
                       BoxShadow(
                         color: Colors.white,
                       ),
@@ -320,16 +324,42 @@ class _HealthRecordPageState extends State<HealthRecordPage> {
                       ),
                     ],
                   ),
+                  child: Row(
+                    children: [
+                      Image.asset(AssetConstant.uniceflogoIcon),
+                      Text(
+                        "Picme Visit",
+                        style: AppTextTheme.medium.copyWith(fontSize: 10, color: ColorConstants.textLightShade),
+                      ),
+                    ],
+                  ),
                 ),
+                const SizedBox(width: 5),
                 Container(
-                  width: 103.64,
-                  height: 34.98,
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(width: 0.50, color: Color(0xFFD8E5FD)),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
+                  height: 34,
+                  padding: const EdgeInsets.all(9),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: ColorConstants.borderColor,width: 1),
+                    boxShadow: const  [
+                      BoxShadow(
+                        color: Colors.white,
+                      ),
+                      BoxShadow(
+                        color: Colors.white70,
+                        spreadRadius: -5.0,
+                        blurRadius: 20.0,
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      Image.asset(AssetConstant.privateHospital),
+                      Text(
+                        "Private Visit",
+                        style: AppTextTheme.medium.copyWith(fontSize: 10, color: ColorConstants.textLightShade),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -391,6 +421,601 @@ class _HealthRecordPageState extends State<HealthRecordPage> {
               ],
             ),
             const SizedBox(height: 14),
+            /*---------------- Clinic Report ----------*/
+            InkWell(
+              onTap: (){
+                showModalBottomSheet(
+                    backgroundColor: ColorConstants.transParent,
+                    context: context, builder: (context){
+                  return const HealthRecordModelSheetView();
+                });
+              },
+              child: Container(
+                padding: const EdgeInsets.only(left: 26, top: 8),
+                margin: const EdgeInsets.only(left: 20, right: 20),
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), color: ColorConstants.textWhite),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 45,
+                      height: 45,
+                      decoration: const BoxDecoration(image: DecorationImage(image: AssetImage(AssetConstant.clinikReport), fit: BoxFit.cover)),
+                    ),
+                    const SizedBox(width: 22),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 20),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Clinical Report",
+                                  style: AppTextTheme.medium.copyWith(fontSize: 18, color: ColorConstants.textLightBrown),
+                                ),
+                                Stack(
+                                  clipBehavior: Clip.none,
+                                  children: [
+                                    Container(
+                                      height: 23,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(color: ColorConstants.lightGreenColor, borderRadius: BorderRadius.circular(15)),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          const SizedBox(width: 2),
+                                          Text(
+                                            "Pulse Rate",
+                                            style: AppTextTheme.regular.copyWith(
+                                              fontSize: 10,
+                                              color: ColorConstants.greenColor,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Positioned(
+                                      left: -17,
+                                      top: 0,
+                                      bottom: 3,
+                                      child: Image.asset(
+                                        AssetConstant.bitIcon,
+                                        height: 34,
+                                        width: 34,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          AssetConstant.bloodPressureIcon,
+                                          height: 14,
+                                        ),
+                                        Text(
+                                          " BP",
+                                          style: AppTextTheme.regular.copyWith(fontSize: 14, color: ColorConstants.textLightBrown),
+                                        )
+                                      ],
+                                    ),
+                                    const SizedBox(height: 5),
+                                    Text(
+                                      "70/70",
+                                      style: AppTextTheme.bold.copyWith(
+                                        fontSize: 10,
+                                        color: ColorConstants.textLightShade,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                height: 34,
+                                width: 2,
+                                color: ColorConstants.dividerColor,
+                              ),
+                              SizedBox(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          AssetConstant.weightScaleIcon,
+                                          height: 14,
+                                        ),
+                                        Text(
+                                          " Weight",
+                                          style: AppTextTheme.regular.copyWith(fontSize: 14, color: ColorConstants.textLightBrown),
+                                        )
+                                      ],
+                                    ),
+                                    const SizedBox(height: 5),
+                                    Text(
+                                      "65kg",
+                                      style: AppTextTheme.bold.copyWith(
+                                        fontSize: 10,
+                                        color: ColorConstants.textLightShade,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                height: 34,
+                                width: 2,
+                                color: ColorConstants.dividerColor,
+                              ),
+                              SizedBox(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          AssetConstant.heightIcon,
+                                          height: 14,
+                                        ),
+                                        Text(
+                                          " F Height",
+                                          style: AppTextTheme.regular.copyWith(fontSize: 14, color: ColorConstants.textLightBrown),
+                                        )
+                                      ],
+                                    ),
+                                    const SizedBox(height: 5),
+                                    Text(
+                                      "5.5cm",
+                                      style: AppTextTheme.bold.copyWith(
+                                        fontSize: 10,
+                                        color: ColorConstants.textLightShade,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(width: 10),
+                            ],
+                          ),
+                          const SizedBox(height: 5),
+                          Container(
+                            height: 18,
+                            padding: const EdgeInsets.only(left: 12, right: 35),
+                            decoration: ShapeDecoration(
+                              color: Colors.white.withOpacity(0.4099999964237213),
+                              shape: const RoundedRectangleBorder(
+                                side: BorderSide(width: 0.50, color: Color(0xFFFFE4E8)),
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(15),
+                                  bottomRight: Radius.circular(8),
+                                ),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Image.asset(AssetConstant.healthIcon, height: 7),
+                                    const SizedBox(width: 3),
+                                    Text(
+                                      "HFS : 140",
+                                      style: AppTextTheme.regular.copyWith(fontSize: 8, color: ColorConstants.textLightShade),
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Image.asset(AssetConstant.pedalPresentIcon, height: 10),
+                                    const SizedBox(width: 2),
+                                    Text(
+                                      "Pedal Edema Present : NIL",
+                                      style: AppTextTheme.regular.copyWith(fontSize: 8, color: ColorConstants.textLightBlueGrayColor),
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            /*---------------- LAB Report ----------*/
+            InkWell(
+                onTap:(){},
+              child: Container(
+                padding: const EdgeInsets.only(left: 26, top: 8),
+                margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), color: ColorConstants.textWhite),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 45,
+                      height: 45,
+                      decoration: const BoxDecoration(image: DecorationImage(image: AssetImage(AssetConstant.lab), fit: BoxFit.cover)),
+                    ),
+                    const SizedBox(width: 22),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 20),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Lab Report",
+                                  style: AppTextTheme.medium.copyWith(fontSize: 18, color: ColorConstants.textLightBrown),
+                                ),
+                                Container(
+                                  height: 23,
+                                  padding: const EdgeInsets.all(5),
+                                  decoration: BoxDecoration(color: ColorConstants.lightYellowColor, borderRadius: BorderRadius.circular(15)),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Image.asset(AssetConstant.hbIcon, height: 10),
+                                      const SizedBox(width: 2),
+                                      Text(
+                                        "HB 10 G %",
+                                        style: AppTextTheme.regular.copyWith(
+                                          fontSize: 10,
+                                          color: ColorConstants.textLightBrown,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          AssetConstant.bloodPressureIcon,
+                                          height: 14,
+                                        ),
+                                        Text(
+                                          " FBS",
+                                          style: AppTextTheme.regular.copyWith(fontSize: 14, color: ColorConstants.textLightBrown),
+                                        )
+                                      ],
+                                    ),
+                                    const SizedBox(height: 5),
+                                    Text(
+                                      "90",
+                                      style: AppTextTheme.bold.copyWith(
+                                        fontSize: 10,
+                                        color: ColorConstants.textLightShade,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                height: 34,
+                                width: 2,
+                                color: ColorConstants.dividerColor,
+                              ),
+                              SizedBox(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          AssetConstant.ppbsIcon,
+                                          height: 14,
+                                        ),
+                                        Text(
+                                          " PPBS",
+                                          style: AppTextTheme.regular.copyWith(fontSize: 14, color: ColorConstants.textLightBrown),
+                                        )
+                                      ],
+                                    ),
+                                    const SizedBox(height: 5),
+                                    Text(
+                                      "86 mg/dl",
+                                      style: AppTextTheme.bold.copyWith(
+                                        fontSize: 10,
+                                        color: ColorConstants.textLightShade,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                height: 34,
+                                width: 2,
+                                color: ColorConstants.dividerColor,
+                              ),
+                              SizedBox(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          AssetConstant.gctIcon,
+                                          height: 14,
+                                        ),
+                                        Text(
+                                          " GCT",
+                                          style: AppTextTheme.regular.copyWith(fontSize: 14, color: ColorConstants.textLightBrown),
+                                        )
+                                      ],
+                                    ),
+                                    const SizedBox(height: 5),
+                                    Text(
+                                      "120mg/dl",
+                                      style: AppTextTheme.bold.copyWith(
+                                        fontSize: 10,
+                                        color: ColorConstants.textLightShade,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(width: 10),
+                            ],
+                          ),
+                          const SizedBox(height: 5),
+                          Container(
+                            height: 18,
+                            padding: const EdgeInsets.only(left: 12, right: 35),
+                            decoration: ShapeDecoration(
+                              color: Colors.white.withOpacity(0.4099999964237213),
+                              shape: const RoundedRectangleBorder(
+                                side: BorderSide(width: 0.50, color: Color(0xFFFFE4E8)),
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(15),
+                                  bottomRight: Radius.circular(8),
+                                ),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Image.asset(AssetConstant.sugerIcon, height: 7),
+                                    const SizedBox(width: 3),
+                                    Text(
+                                      "Sugar : NR",
+                                      style: AppTextTheme.regular.copyWith(fontSize: 8, color: ColorConstants.textLightShade),
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Image.asset(AssetConstant.urineIcon, height: 10),
+                                    const SizedBox(width: 2),
+                                    Text(
+                                      "Urine Albumin :NR",
+                                      style: AppTextTheme.regular.copyWith(fontSize: 8, color: ColorConstants.textLightBlueGrayColor),
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            /*--------------- USG  Report -----------*/
+            InkWell(
+              onTap: (){},
+              child: Container(
+                padding: const EdgeInsets.only(left: 26, top: 8),
+                margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), color: ColorConstants.textWhite),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 45,
+                      height: 45,
+                      decoration: const BoxDecoration(image: DecorationImage(image: AssetImage(AssetConstant.usgReport), fit: BoxFit.cover)),
+                    ),
+                    const SizedBox(width: 22),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 20),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "USG Report",
+                                  style: AppTextTheme.medium.copyWith(fontSize: 18, color: ColorConstants.textLightBrown),
+                                ),
+                                Container(
+                                  height: 23,
+                                  padding: const EdgeInsets.all(5),
+                                  decoration: BoxDecoration(color: ColorConstants.lightYellowColor, borderRadius: BorderRadius.circular(15)),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Image.asset(AssetConstant.tshIcon, height: 10),
+                                      const SizedBox(width: 2),
+                                      Text(
+                                        "TSH : NR MU/L",
+                                        style: AppTextTheme.regular.copyWith(
+                                          fontSize: 10,
+                                          color: ColorConstants.textLightBrown,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          AssetConstant.fetusIcon,
+                                          height: 14,
+                                        ),
+                                        Text(
+                                          " Fetus",
+                                          style: AppTextTheme.regular.copyWith(fontSize: 14, color: ColorConstants.textLightBrown),
+                                        )
+                                      ],
+                                    ),
+                                    const SizedBox(height: 5),
+                                    Text(
+                                      "Alive  Mg/dl",
+                                      style: AppTextTheme.bold.copyWith(
+                                        fontSize: 10,
+                                        color: ColorConstants.textLightShade,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                height: 34,
+                                width: 2,
+                                color: ColorConstants.dividerColor,
+                              ),
+                              SizedBox(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          AssetConstant.placentaIcon,
+                                          height: 14,
+                                        ),
+                                        Text(
+                                          " Placenta",
+                                          style: AppTextTheme.regular.copyWith(fontSize: 14, color: ColorConstants.textLightBrown),
+                                        )
+                                      ],
+                                    ),
+                                    const SizedBox(height: 5),
+                                    Text(
+                                      "86 mg/dl",
+                                      style: AppTextTheme.bold.copyWith(
+                                        fontSize: 10,
+                                        color: ColorConstants.textLightShade,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                height: 34,
+                                width: 2,
+                                color: ColorConstants.dividerColor,
+                              ),
+                              SizedBox(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          AssetConstant.liquorIcon,
+                                          height: 14,
+                                        ),
+                                        Text(
+                                          " Liquor",
+                                          style: AppTextTheme.regular.copyWith(fontSize: 14, color: ColorConstants.textLightBrown),
+                                        )
+                                      ],
+                                    ),
+                                    const SizedBox(height: 5),
+                                    Text(
+                                      "Normal",
+                                      style: AppTextTheme.bold.copyWith(
+                                        fontSize: 10,
+                                        color: ColorConstants.textLightShade,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(width: 10),
+                            ],
+                          ),
+                          const SizedBox(height: 5),
+                          Container(
+                            height: 18,
+                            padding: const EdgeInsets.only(left: 12, right: 35),
+                            decoration: ShapeDecoration(
+                              color: Colors.white.withOpacity(0.4099999964237213),
+                              shape: const RoundedRectangleBorder(
+                                side: BorderSide(width: 0.50, color: Color(0xFFFFE4E8)),
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(15),
+                                  bottomRight: Radius.circular(8),
+                                ),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Image.asset(AssetConstant.gestationIcon, height: 7),
+                                    const SizedBox(width: 3),
+                                    Text(
+                                      "Gestation Sac : Single",
+                                      style: AppTextTheme.regular.copyWith(fontSize: 8, color: ColorConstants.textLightShade),
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

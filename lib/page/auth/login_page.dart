@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:thaimai/api/dio_client.dart';
 import 'package:thaimai/constant/asset_constant.dart';
 import 'package:thaimai/constant/color_constant.dart';
 import 'package:thaimai/page/auth/forgot_picme_id_bottom_sheet.dart';
@@ -18,7 +19,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _iDTextEditingController = TextEditingController();
   final _passwordTextEditingController = TextEditingController();
-  bool _isPasswordShow = false;
+  bool _isPasswordShow = true;
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
               child: CircleRadiusButton(
                 buttonTitle: "Login",
                 onPressed: () {
-                  Get.to(()=>const BottomNavigationBarPage());
+                  doLogin();
                 },
               ),
             )
@@ -126,5 +127,16 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  /*----------------- do-Login -----------*/
+  doLogin() async {
+    if (_iDTextEditingController.text.isEmpty) {
+      showMessage("Please enter PICMEId.");
+    } else if (_passwordTextEditingController.text.isEmpty) {
+      showMessage("Please enter Password.");
+    } else {
+      Get.to(() => const BottomNavigationBarPage());
+    }
   }
 }
