@@ -18,5 +18,8 @@ class ColorConstants {
   static Color borderColor = const Color(0xFFD9E5FE);
   static Color greenColorData = const Color(0xFF0EBE7F);
   static Color yellowLightColor = const Color(0xFFFFF7DF);
+  static Color containerGrayLightColor = const Color(0xFFCBCBCB);
+  static Color textLightBrownColor = const Color(0xFF565656);
+  static Color redColor = const Color(0xFFFF0000);
   static Color transParent = Colors.transparent;
 }

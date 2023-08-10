@@ -31,6 +31,20 @@ class AssetConstant {
   static const String pdfIcon = 'assets/icon/pdf.png';
   static const String prescnptionIcon = 'assets/icon/prescnption.png';
   static const String reportIcon = 'assets/icon/report.png';
+  static const String childDevelopmentIcon = 'assets/icon/child_development.png';
+  static const String clearIcon = 'assets/icon/clear.png';
+  static const String deliveryEntryIcon = 'assets/icon/delivery_entry.png';
+  static const String healthTipsIcon = 'assets/icon/health_tips.png';
+  static const String immunizationStatusIcon = 'assets/icon/immunization_status.png';
+  static const String immunizationEntryIcon = 'assets/icon/immunization_entry.png';
+  static const String logoutIcon = 'assets/icon/logout.png';
+  static const String pnHBNCIcon = 'assets/icon/pnhbnc.png';
+  static const String primaryRegisterIcon = 'assets/icon/primary_register.png';
+  static const String visitEntryIcon = 'assets/icon/visit_entry.png';
+  static const String downArrowIcon = 'assets/icon/down_arrow.png';
+  static const String searchIcon = 'assets/icon/search_icon.png';
+  static const String locationIcon = 'assets/icon/location.png';
+  static const String calenderIcon = 'assets/icon/calender.png';
 
   /*---------------------  Static Image -----------------*/
   static const String homeBg = 'assets/image/home_bg.png';
@@ -43,4 +57,7 @@ class AssetConstant {
   static const String usgReport = 'assets/image/usg_report.png';
   static const String lab = 'assets/image/lab.png';
   static const String medicalReport = 'assets/image/medical_report.png';
+  static const String lgBgImage = 'assets/image/lg_bg.jpg';
+  static const String locationImage = 'assets/image/location.png';
+  static const String detailImage = 'assets/image/detail_image.png';
 }

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:thaimai/constant/asset_constant.dart';
 import 'package:thaimai/constant/color_constant.dart';
 import 'package:thaimai/page/home/health_record_page.dart';
+import 'package:thaimai/page/primary_register/location_service_page.dart';
 import 'package:thaimai/project_specific/text_theme.dart';
 
 import '../../main.dart';
@@ -257,6 +258,7 @@ class _HomeTabPageState extends State<HomeTabPage> {
                       15,
                       growable: false,
                       (index) => Card(
+                            clipBehavior: Clip.none,
                             child: Container(
                               margin: const EdgeInsets.only(left: 20),
                               width: 96,
@@ -306,11 +308,108 @@ class _HomeTabPageState extends State<HomeTabPage> {
       drawer: Drawer(
         child: Container(
           decoration: const BoxDecoration(image: DecorationImage(image: AssetImage(AssetConstant.loginBg), fit: BoxFit.cover)),
-          child: const Column(
-            children: [],
+          child: ListView(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 21, right: 15, top: 25, bottom: 95),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"),
+                                  fit: BoxFit.cover)),
+                        ),
+                        const SizedBox(width: 12),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Hi Username",
+                              style: AppTextTheme.medium.copyWith(fontSize: 16, color: ColorConstants.textLightShade),
+                            ),
+                            const SizedBox(height: 6),
+                            Text(
+                              "133009327105",
+                              style: AppTextTheme.regular.copyWith(fontSize: 12, color: ColorConstants.textLightShade),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: Image.asset(
+                        AssetConstant.clearIcon,
+                        width: 30,
+                        height: 30,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              drawerListTile(tileName: "Primary Register", imageUrl: AssetConstant.primaryRegisterIcon, onTap: () {
+                Get.back();
+                Get.to(()=>const LocationServicePage());
+              }),
+              const SizedBox(height: 10),
+              drawerListTile(tileName: "Immunization Status", imageUrl: AssetConstant.immunizationStatusIcon, onTap: () {}),
+              const SizedBox(height: 10),
+              drawerListTile(tileName: "Visit Entry", imageUrl: AssetConstant.visitEntryIcon, onTap: () {}),
+              const SizedBox(height: 10),
+              drawerListTile(tileName: "Delivery Entry", imageUrl: AssetConstant.deliveryEntryIcon, onTap: () {}),
+              const SizedBox(height: 10),
+              drawerListTile(tileName: "PN/HBNC Visit Entry", imageUrl: AssetConstant.pnHBNCIcon, onTap: () {}),
+              const SizedBox(height: 10),
+              drawerListTile(tileName: "Immunization Entry", imageUrl: AssetConstant.immunizationEntryIcon, onTap: () {}),
+              const SizedBox(height: 10),
+              drawerListTile(tileName: "Health Tips", imageUrl: AssetConstant.healthTipsIcon, onTap: () {}),
+              const SizedBox(height: 10),
+              drawerListTile(tileName: "Child Development", imageUrl: AssetConstant.childDevelopmentIcon, onTap: () {}),
+              const SizedBox(height: 65),
+              InkWell(
+                onTap: () {},
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Row(
+                    children: [
+                      Image.asset(AssetConstant.logoutIcon, width: 20, height: 20),
+                      const SizedBox(width: 27),
+                      Text(
+                        "Logout",
+                        style: AppTextTheme.medium.copyWith(fontSize: 20, color: ColorConstants.textLightShade),
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget drawerListTile({required String tileName, required String imageUrl, required VoidCallback onTap}) {
+    return ListTile(
+      onTap: onTap,
+      title: Text(
+        tileName,
+        style: AppTextTheme.regular.copyWith(fontSize: 16, color: ColorConstants.textLightShade),
+      ),
+      leading: Image.asset(imageUrl, width: 20, height: 20),
+      trailing: const Icon(Icons.arrow_forward_ios_rounded, size: 20),
     );
   }
 }

@@ -5,12 +5,9 @@ import 'package:thaimai/project_specific/text_theme.dart';
 class CircleRadiusButton extends StatefulWidget {
   final String buttonTitle;
   final VoidCallback? onPressed;
+  final Color? color;
 
-  const CircleRadiusButton({
-    super.key,
-    required this.buttonTitle,
-    this.onPressed,
-  });
+  const CircleRadiusButton({super.key, required this.buttonTitle, this.onPressed, this.color = ColorConstants.buttonColor});
 
   @override
   State<CircleRadiusButton> createState() => _CircleRadiusButtonState();
@@ -25,7 +22,7 @@ class _CircleRadiusButtonState extends State<CircleRadiusButton> {
         height: 54,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: ColorConstants.buttonColor,
+          color: widget.color,
         ),
         child: Center(
           child: Text(widget.buttonTitle,
